@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Element Object</h1>
+<h2>The appendChild() Method</h2>
+
+<p>Click "Append" create a paragraph and append it to myDIV:</p>
+
+<button onclick="myAppend()">Append</button>
+<button onclick="myRemove()">Remove</button>
+
+<div id="myDIV">
+<h2>I am myDIV</h2>
+<p>Jeden paragraf</p>
+<p>Druhy paragraf</p>
+<p>Treti paragraf</p>
+<h2>Sme rubikove kocky</h2>
+</div>
+
+<script>
+
+function myAppend() {
+
+	// Create a p element:
+	const para = document.createElement("p");
+
+	// Create a text node:
+	const node = document.createTextNode("Skusame DOM.");
+
+	// Append text node to the p element:
+	para.appendChild(node);
+
+	// Append the p element to the body:
+	document.getElementById("myDIV").appendChild(para);
+}
+
+function myRemove() {
+	//const list = document.getElementsByTagName("p");
+	const novy = document.getElementById("myDIV").getElementsByTagName("p");
+	novy[novy.length-1].remove();
+	//list.removeChild(list.lastElementChild);
+}
+</script>
+
+</body>
+</html>

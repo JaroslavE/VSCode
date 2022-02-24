@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Finding HTML Elements by Id</h2>
+<p id="id01">Hello World!</p>
+<p id="id02">Hello Sweden!</p>
+<p id="id03">Hello Japan!</p>
+
+<p id="demo"></p>
+
+<script>
+//v principe tu ide o to, že jednou funkciou upujem a druhou downujem, 
+//v momente ako sa dostaneme na P element s ID demo a zacneme striedat down a up tak vtedy ten text stackujeme
+var c=0;
+function up(){
+    $(document).ready(function() {
+        var myElements = $("p");
+        $("#demo").text("The text from the id01 paragraph is: " + myElements[c].innerHTML);
+    });
+    c=c+1;
+}
+
+function down(){
+    $(document).ready(function() {
+        var myElements = $("p");
+        $("#demo").text("The text from the id01 paragraph is: " + myElements[c].innerHTML);
+    });
+    c=c-1;
+}
+
+</script>
+<button type="button" onClick="up()">Up</button>
+<button type="button" onClick="down()">Down</button>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>The Console Object</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>
+            League of Legends
+        </td>
+        <td>
+            1 500 0000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            CS:GO
+        </td>
+        <td>
+            750 000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Heartstone
+        </td>
+        <td>
+            3
+        </td>
+    </tr>
+</table>
+
+<button onclick="hlNext()">HighligthNext</button>
+
+<script>
+    $(function (){
+        $("tr:even").css("background-color","green");
+        $("tr:odd").css("background-color","red");
+    });
+
+    var c=0;
+
+    function hlNext(){
+        $("tr").ready(function(){
+            var myTrElements = $("tr");
+            $(myTrElements[c]).css("background-color","yellow");
+            c++;
+        });
+       
+    }
+    
+    //AJAX
+    $("button").click(function(){
+        console.log("Hello data:");
+        $.get("http://localhost:5500/skore.txt", function(data,status){
+            var subor = data;
+            console.log("Hello data:" + data);
+        });    
+    });
+
+</script>
+
+</body>
+</html>

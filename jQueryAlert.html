@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Finding HTML Elements by Id</h2>
+<p id="id01">Hello World!</p>
+<p id="id02">Hello Sweden!</p>
+<p id="id03">Hello Japan!</p>
+
+<button>Whip me! Whip me, bitch.</button>
+
+<script>
+$("#id02").click(function() {
+    alert($(this).text());
+});
+
+$("button").click(function() {
+    $("p").css("color","red").slideUp(2000).slideDown(2000);
+});
+</script>
+
+</body>
+</html>
