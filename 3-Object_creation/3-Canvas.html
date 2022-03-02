@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        body {
+          margin: 0px;
+          padding: 0px;
+        }
+        /*musi byt zhodne s element ID*/
+        #canvas1 { 
+          border: 3px solid black;
+        }
+
+        #canvas2 { 
+          border: 3px solid blue;
+        }
+
+        #canvas3 { 
+          border: 3px solid red;
+        }
+      </style>
+    </head>
+<body>
+
+<h2>Robko a jeho prve ciary</h2>
+
+<p>Play around with the code and click on the "Run" button to view the result. Something new i just added.</p>
+<img id="scream" width="220" height="277" src="pic_the_scream.jpg" alt="The Scream">
+<p></p>
+<canvas id="canvas1" height="200" width="500">New canvas</canvas>
+<p></p>
+<canvas id="canvas2" height="200" width="500">New canvas</canvas>
+<p></p>
+<canvas id="canvas3" height="300" width="1000">New canvas</canvas>
+<script>
+
+    //Nastavenie canvas1 elementu
+    var canvas1 = document.getElementById("canvas1");
+    var context1 = canvas1.getContext("2d");
+
+    var x = canvas1.width/2;
+    var y = canvas1.height/2;
+    context1.font = "30pt Calibri";
+    context1.textAlign = "center";
+    context1.fillStyle = "blue";
+    context1.fillText("Hello World!", 0, y);
+    //Stvorec
+    context1.fillRect(0,0,50,50);
+    //Kruh
+    context1.beginPath();
+    //arc(x,y,polomer, startangle, endangle)
+    context1.arc(250,50,50,0,2*Math.PI);
+    context1.stroke();
+    context1.fill();
+    
+    for(let i = 0;i<500;i+=10){
+        drawStraighLine(context1, i,0, i,200);
+    }
+
+    for(let j = 0;j<200;j+=10){
+        drawStraighLine(context1, 0,j, 500,j);
+    }
+
+    //Nastavenie canvas2 elementu
+    var canvas2 = document.getElementById("canvas2");
+    var context2 = canvas2.getContext("2d");
+    context2.beginPath();
+    context2.strokeStyle = "blue";
+    context2.fillStyle="orange";
+    context2.lineWidth = 10;
+    context2.moveTo(5,50);
+    context2.lineTo(400,20);
+    context2.lineTo(200,200);
+    context2.lineTo(5,50);
+    context2.closePath();
+    context2.stroke();
+    context2.fill();
+    //Nastavenie canvas3 elementu
+    var canvas3 = document.getElementById("canvas3");
+    var context3 = canvas3.getContext("2d");
+
+    context3.beginPath();
+    context3.moveTo(100,157);
+    context3.bezierCurveTo(80,26, 357,47, 325,180)
+    context3.lineWidth = 5;
+    context3.strokeStyle = "purple";
+    context3.stroke();
+    //vložíme obrázok do contextu nutné použiť window.onload
+    window.onload = function(){
+        var canvas = document.getElementById("canvas3");
+        var ctx = canvas.getContext("2d");
+        var img = document.getElementById("scream");
+        ctx.drawImage(img, 400, 10);
+    };
+    
+function drawStraighLine(context, x1, y1, x2, y2){
+    context.beginPath();
+    context.strokeStyle = "orange";
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.closePath();
+    context.stroke();
+}
+</script>
+</body>
+</html>
