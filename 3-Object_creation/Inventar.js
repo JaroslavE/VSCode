@@ -1,4 +1,5 @@
 class Inventar{
+    //v ramci atributu items pouzivame princip Agregacie na to aby sme agregovali viac objektov do jedneho
     items = [];
 
     addNewItem(item){
