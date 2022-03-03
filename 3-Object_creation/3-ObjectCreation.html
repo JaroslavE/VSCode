@@ -7,13 +7,18 @@
 <p>Mozeme spustit aj tlacidlom</p>
 
 <button onclick="spustimeNasSkript()">Whip me bitch.</button>
-
+<!--Naimportujem si vsetky JavaScript subory aby sme s nimi vedeli pracovat-->
 <script src="Spustime.js"></script>
 <script src="Hrac.js"></script>
 <script src="Armor.js"></script>
 <script src="Inventar.js"></script>
 <script src="ZazracneHohavicePriskrtenehoRozkroku.js"></script>
 <script src="FajkaMieruPoKtorejOstanemSfukanyAkoBomba.js"></script>
-<!--<script></script>-->
+<!--<script>
+    //tu si viem potom vytvarat objekty ale z pohladu HTML musia byt najprv importovane ostatne JS subory aby som vedel
+    //pracovat s ich funkciami, metodamy, objektami, premennymi ...
+    var hrac = new Hrac(parametre pre konstruktor, ak nejake su); //ak by bol cely tento element script ako prvy tak
+    //toto vytvorenie objektu by nefungovalo
+</script>-->
 </body>
 </html>
