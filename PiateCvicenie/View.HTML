@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #canvas {
+          border-style: solid;
+          border-width: 5px;
+        }
+      </style>
+<body>
+
+
+<h1>Ideme sa hrajkat s objektami.</h1>
+<p>
+    <canvas id="canvas" height="400" width="400"></canvas>
+</p>
+<p id="ako"></p>
+<p id="MP"></p>
+<script src="Model/Hrac.js"></script>
+<script src="Model/Enemy.js"></script>
+<script src="Controller/Klavesnica.js"></script>
+<script src="Controller/Mys.js"></script>
+<script src="Model/Mechanics.js"></script>
+<script src="View.js"></script>
+<script>
+//Tu je iba inicializacia
+var ctx;
+var canvas;
+var objekty = [];
+var enemies = [];
+//premenna ktora sluzi na to, ze sam tam uklada nejake to request ID pri obnove frame-u
+var requestForCancelFrameRefresh;
+
+//Objekty
+var hrac = new Hrac("Janko Hracko", 50,55,50,30);
+var enemy = new Enemy("Ignac Fekete", 50,55,50,30);
+
+objekty.push(hrac);
+objekty.push(enemy);
+enemies.push(enemy);  
+
+//MainLoop
+window.onload = function() {
+  // Setup global variables for easy access
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
+  canvas.onclick = kliknutieMysou;
+  requestAnimationFrame(mainLoop);
+};
+
+</script>
+</body>
+</html>

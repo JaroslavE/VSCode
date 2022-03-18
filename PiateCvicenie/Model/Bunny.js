@@ -1,0 +1,9 @@
+class Bunny{
+    //Polymorfizmus
+    utok(enemy){
+        if(this.isInRange(enemy) == true){
+            var upravZdravie = enemy.getZdravie() + enemy.obrana() - this.sila - this.zbroj;
+            enemy.setZdravie(upravZdravie);   
+        } 
+    }
+}
