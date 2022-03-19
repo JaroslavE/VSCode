@@ -3,8 +3,8 @@ function kliknutieMysou(event) {
     var y = event.pageY - canvas.offsetTop;
   
     // Test each square for click
-    for (var i in objekty) {
-      var objekt = objekty[i];
+    for (var i in zoznamNepriatelov) {
+      var objekt = zoznamNepriatelov[i];
       objPos = objekt.getPosition();
       rozdielX = objPos.x - x;
       rozdielY = objPos.y - y;
