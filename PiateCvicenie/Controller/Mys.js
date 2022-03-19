@@ -17,7 +17,13 @@ function kliknutieMysou(event) {
           objekt.showAtributes();
       }
     }
+}
 
-    var element = document.getElementById("MP");
-    element.innerHTML = "X: " + x + " Y:" + y;
+function pohybMysou(event){
+  var x = event.pageX - canvas.offsetLeft;
+  var y = event.pageY - canvas.offsetTop;
+
+  var element = document.getElementById("MP");
+  element.innerHTML = "X: " + x + " Y:" + y;
+
 }
