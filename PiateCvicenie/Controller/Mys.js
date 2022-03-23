@@ -3,8 +3,8 @@ function kliknutieMysou(event) {
     var y = event.pageY - canvas.offsetTop;
   
     // Test each square for click
-    for (var i in objekty) {
-      var objekt = objekty[i];
+    for (var i in zoznamNepriatelov) {
+      var objekt = zoznamNepriatelov[i];
       objPos = objekt.getPosition();
       rozdielX = objPos.x - x;
       rozdielY = objPos.y - y;
@@ -17,7 +17,13 @@ function kliknutieMysou(event) {
           objekt.showAtributes();
       }
     }
+}
 
-    var element = document.getElementById("MP");
-    element.innerHTML = "X: " + x + " Y:" + y;
+function pohybMysou(event){
+  var x = event.pageX - canvas.offsetLeft;
+  var y = event.pageY - canvas.offsetTop;
+
+  var element = document.getElementById("MP");
+  element.innerHTML = "X: " + x + " Y:" + y;
+
 }

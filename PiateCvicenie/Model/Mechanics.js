@@ -6,3 +6,5 @@ function enemiesAttackPlayer(hrac, enemies){
     console.log("Zdravie hraca:" + hrac.getZdravie() + " Zbroj: " + hrac.getZbroj());
     //console.log("Zdravie enemy:" + enemy.getZdravie());*/
 }
+
+//tu sa robia nove mechaniky napriklad ak mam viac nepriatelov a jedneho zabijem aby sa hra aktualizovala a jeden enemy prestal existovat

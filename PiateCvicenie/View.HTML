@@ -25,7 +25,7 @@
 //Tu je iba inicializacia
 var ctx;
 var canvas;
-var objekty = [];
+var zoznamNepriatelov = [];
 var enemies = [];
 //premenna ktora sluzi na to, ze sam tam uklada nejake to request ID pri obnove frame-u
 var requestForCancelFrameRefresh;
@@ -34,8 +34,8 @@ var requestForCancelFrameRefresh;
 var hrac = new Hrac("Janko Hracko", 50,55,50,30);
 var enemy = new Enemy("Ignac Fekete", 50,55,50,30);
 
-objekty.push(hrac);
-objekty.push(enemy);
+zoznamNepriatelov.push(hrac);
+zoznamNepriatelov.push(enemy);
 enemies.push(enemy);  
 
 //MainLoop
@@ -44,6 +44,7 @@ window.onload = function() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   canvas.onclick = kliknutieMysou;
+  canvas.onmousemove = pohybMysou;
   requestAnimationFrame(mainLoop);
 };
 
