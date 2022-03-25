@@ -1,6 +1,6 @@
-function pohniVsetkymiNepriatelmi(enemies, hrac){
+function pohniVsetkymiNepriatelmi(enemies, hrac,level){
     for(var i in enemies ){
-        enemies[i].pohniSa(hrac);
+        enemies[i].pohniSa(hrac,level);
     }
 }
 
@@ -12,10 +12,10 @@ function nakresliVsetkychNepriatelov(enemies, canvas){
 
 //Main loop - tu ide o volanie metod z modelu aby ste vo view videli ako sa pohybuju
 function mainLoop() {
-    refreshCanvas(canvas);
-    hrac.pohniSa(canvas);
+    refreshMap(level);
+    hrac.pohniSa(canvas, level);
     //Ak chceme viac enemy tak vytvorit pole enemy a pushnut ich tam a aktualizovat poziciu v cykle 
-    pohniVsetkymiNepriatelmi(enemies, hrac);
+    pohniVsetkymiNepriatelmi(enemies, hrac,level);
     hrac.nakresliSa(canvas);
     //Ak mame viac enemy tak aktualizovat vykreslenie v cykle
     nakresliVsetkychNepriatelov(enemies, canvas);

@@ -30,24 +30,25 @@
 //Tu je iba inicializacia
 var ctx;
 var canvas;
-var zoznamNepriatelov = [];
+var zoznamObjektov = []; // Toto je premenná na prácu s mysou, kedy klikame na objekty a vypise nam zakladne vlastnosti objektov
 var enemies = [];
 //premenna ktora sluzi na to, ze sam tam uklada nejake to request ID pri obnove frame-u
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d")
 var requestForCancelFrameRefresh;
+var level = new Level(ctx);
 
 //Objekty
 var hrac = new Hrac("Janko Hracko", 50,55,50,30);
 var enemy = new Enemy("Ignac Fekete", 50,55,50,30);
 
-zoznamNepriatelov.push(hrac);
-zoznamNepriatelov.push(enemy);
+zoznamObjektov.push(hrac);
+zoznamObjektov.push(enemy);
 enemies.push(enemy);  
 
 //MainLoop
 window.onload = function() {
   // Setup global variables for easy access
-  canvas = document.getElementById("canvas");
-  ctx = canvas.getContext("2d");
   canvas.onclick = kliknutieMysou;
   canvas.onmousemove = pohybMysou;
   requestAnimationFrame(mainLoop);

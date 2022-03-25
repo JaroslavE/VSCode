@@ -10,8 +10,8 @@ class Hrac{
         this.farba = "green";
         this.velkost = Polomer;
         this.position= {
-            x: Math.random() * 100 + 100, 
-            y: Math.random() * 100 + 100
+            x: 100, 
+            y: 100
         }
     }
 
@@ -44,27 +44,37 @@ class Hrac{
         ctx.fill();
     }
 
-    pohniSa(canvas){
+    pohniSa(canvas, level){
         //ASCII representation of arrows, for A D S W use numbers 65, 68, 83 a 87 for a, d, s, w use 97, 100, 115 a 119 
-        if (keys[37]) this.isInCanvas(canvas,-5,0);//Left
-        if (keys[39]) this.isInCanvas(canvas, 5,0);//Right
-        if (keys[38]) this.isInCanvas(canvas,0,-5);//Up
-        if (keys[40]) this.isInCanvas(canvas,0, 5);//Down
+        if (keys[37]) this.isInCanvas(canvas,-5,0,level);//Left
+        if (keys[39]) this.isInCanvas(canvas, 5,0,level);//Right
+        if (keys[38]) this.isInCanvas(canvas,0,-5,level);//Up
+        if (keys[40]) this.isInCanvas(canvas,0, 5,level);//Down
     }
 
     //Check borders of canvas
-    isInCanvas(canvas,x,y){
-        var newX = this.position.x+x;
-        var newY = this.position.y+y;
+    isInCanvas(canvas,x,y,level){
+        var futureX = this.position.x+x;
+        var futureY = this.position.y+y;
+        var newX = this.position.x;
+        var newY = this.position.y;
         //console.log("Debug Hrac: X: " + this.position.x + " Y: " + this.position.y);
-        if(newX>canvas.width) this.position.x=0;
-        else if(newX<0) this.position.x=canvas.width;
-        else if(newY>canvas.height) this.position.y=0;
-        else if(newY<0) this.position.y=canvas.height;
+        if(futureX>canvas.width) newX=0;
+        else if(futureX<0) newX=canvas.width;
+        else if(futureY>canvas.height) newY=0;
+        else if(futureY<0) newY=canvas.height;
         else {
-            this.position.y += y;
-            this.position.x += x;
-        } 
+            newX += x;
+            newY += y;
+        }
+        
+        //Ak som na nejakom bloku tak vyskocime z funkcie
+        if(isAtWall(this, level, newX, newY) == true) return
+        else{
+            this.position.x = newX;
+            this.position.y = newY; 
+        }
+
     }
 
     obrana(){

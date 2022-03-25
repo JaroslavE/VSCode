@@ -10,8 +10,8 @@ class Enemy{
         this.farba = "red";
         this.velkost = Polomer;
         this.position= {
-            x: Math.random() * 100, 
-            y: Math.random() * 100
+            x: 300, 
+            y: 350
         }
     }
 
@@ -44,14 +44,22 @@ class Enemy{
         ctx.fill();
     }
 
-    pohniSa(enemy){
+    pohniSa(enemy,level){
         var enemyPos = enemy.getPosition();
-        if (enemyPos.x < this.position.x) this.position.x -= 1;  
-        else if (enemyPos.x > this.position.x) this.position.x += 1;
-        else ;
-        if (enemyPos.y < this.position.y) this.position.y -= 1;
-        else if (enemyPos.y > this.position.y) this.position.y += 1;
-        else ;
+        if (enemyPos.x < this.position.x)
+            if(isAtWall(this, level, this.position.x-1, this.position.y) == false) 
+                this.position.x -= 1;  
+        if (enemyPos.x > this.position.x)
+            if(isAtWall(this, level, this.position.x+1, this.position.y) == false)
+                this.position.x += 1;
+        if (enemyPos.y < this.position.y)
+            if(isAtWall(this, level, this.position.x, this.position.y-1) == false)
+                this.position.y -= 1;
+        if (enemyPos.y > this.position.y)
+            if(isAtWall(this, level, this.position.x, this.position.y+1) == false)
+                this.position.y += 1;
+        console.log(this.position.x + " " + this.position.y)
+        //if(isAtWall(this, level, newX, newY) == true) return
     }
     
     obrana(){
