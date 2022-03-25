@@ -1,10 +1,3 @@
-//Refresh objektov
-function refreshCanvas(canvas){
-    ctx = canvas.getContext("2d");
-    ctx.fillStyle = "gray";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
 function pohniVsetkymiNepriatelmi(enemies, hrac){
     for(var i in enemies ){
         enemies[i].pohniSa(hrac);
