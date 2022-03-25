@@ -32,7 +32,7 @@ class Level{
             this.addObserver(b1);
         }
 
-        for(var i = 150; i<300; i+=50){
+        for(var i = 100; i<300; i+=50){
             var b1 = new Block(0,i);
             this.addObserver(b1);
         }

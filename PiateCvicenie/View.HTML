@@ -20,8 +20,7 @@
 <script src="Model/Enemy.js"></script>
 <script src="Model/Map/Mapa.js"></script>
 <script src="Model/Map/Block.js"></script>
-<script src="Model/Map/Level1.js"></script>
-<script src="Model/Map/Level2.js"></script>
+<script src="Model/Map/Level.js"></script>
 <script src="Controller/Klavesnica.js"></script>
 <script src="Controller/Mys.js"></script>
 <script src="Model/Mechanics.js"></script>
@@ -39,8 +38,8 @@ var requestForCancelFrameRefresh;
 var level = new Level(ctx);
 
 //Objekty
-var hrac = new Hrac("Janko Hracko", 50,55,50,30);
-var enemy = new Enemy("Ignac Fekete", 50,55,50,30);
+var hrac = new Hrac("Janko Hracko", 50,55,50,25);
+var enemy = new Enemy("Ignac Fekete", 50,55,50,25);
 
 zoznamObjektov.push(hrac);
 zoznamObjektov.push(enemy);
