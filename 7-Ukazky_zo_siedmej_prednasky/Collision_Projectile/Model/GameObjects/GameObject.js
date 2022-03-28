@@ -1,4 +1,5 @@
 class GameObject extends Node{
+    
     constructor(game, x, y, w, h){
         super();
         this.game = game;
@@ -9,15 +10,13 @@ class GameObject extends Node{
     }
 
     move(posun){
-        console.log("Posuvam sa");
         this.onMove(posun);
-        this.notify("onMove",posun);
+        this.notify("move",posun);
     }
 
     draw(context){
-        console.log("Kreslim sa");
         this.onDraw(context);
-        this.notify("onDraw", context);
+        this.notify("draw", context);
     }
 
     onMove(posun){}

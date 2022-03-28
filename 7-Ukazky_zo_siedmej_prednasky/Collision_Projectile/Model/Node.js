@@ -1,7 +1,8 @@
 class Node{
-    observerCollection = [];
 
-    constructor(){}
+    constructor(){
+        this.observerCollection = [];
+    }
 
     addObs(obs){
         this.observerCollection.push(obs);
@@ -13,7 +14,6 @@ class Node{
     }
 
     notify(event, argument){
-        console.log("Smejem sa");
         for(var index in this.observerCollection){
             var node = this.observerCollection[index];
             if(typeof(node[event]) == "function")
