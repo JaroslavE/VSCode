@@ -12,9 +12,10 @@ class Level extends GameObject{
     makeMap(){
         var w = this.w/50;
         var h = this.h/50;
-
+        var tick = 0;
         var generatedBlocks = 0;
         while(generatedBlocks<20){
+            if(tick >= 50) break;
             var x = Math.floor(Math.random() * w);
             var y = Math.floor(Math.random() * h);
             if(this.xPosList.includes(x) == false || this.xPosList.includes(y) == false){
@@ -23,8 +24,8 @@ class Level extends GameObject{
                 this.addBlock(x,y);
                 generatedBlocks++
             }
+            tick++;
         }
-        console.log("Map made");
     };
 
     addBlock(x,y){

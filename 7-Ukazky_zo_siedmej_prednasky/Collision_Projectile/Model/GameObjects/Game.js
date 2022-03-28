@@ -17,6 +17,8 @@ class Game extends GameObject{
         var level = new Level(this);
         this.addObs(level);
         this.level = level;
+        var player = new Player(this);
+        this.addObs(player);
     }
 
     onLoop(){
@@ -26,7 +28,6 @@ class Game extends GameObject{
 }
 
 var game = new Game(document.getElementById("canvas"));
-
 
 function mainLoop(){
     game.onLoop();
