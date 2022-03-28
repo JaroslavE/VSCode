@@ -1,5 +1,7 @@
 class Game extends GameObject{
 
+    level;
+
     constructor(canvas){
         super(undefined, 0, 0, canvas.width, canvas. height);
         this.canvas = canvas;
@@ -14,6 +16,7 @@ class Game extends GameObject{
         this.addObs(background);
         var level = new Level(this);
         this.addObs(level);
+        this.level = level;
     }
 
     onLoop(){
