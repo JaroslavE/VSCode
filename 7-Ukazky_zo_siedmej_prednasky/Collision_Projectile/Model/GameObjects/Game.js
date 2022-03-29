@@ -1,6 +1,7 @@
 class Game extends GameObject{
 
     level;
+    levelCount = 0;
 
     constructor(canvas){
         super(undefined, 0, 0, canvas.width, canvas. height);
@@ -16,16 +17,17 @@ class Game extends GameObject{
         this.addObs(level);
         this.level = level;
         var player = new Player(this);
+        var finish = new Finish(this.game, this.w-50,this.h-50,50,50, player);
+        this.addObs(finish);
         this.addObs(player);
         var enemy = new Enemy(this, player);
         this.addObs(enemy);
     }
 
     newLevel(){
-        var index = this.game.observerCollection.indexOf(this.level);
-        var nextLevel = new Level(this);
-        this.game.observerCollection[index] = nextLevel;
-        this.level = nextLevel;
+        this.observerCollection = [];
+        this.init();
+        this.levelCount++;
     }
 
     onLoop(){
@@ -35,6 +37,7 @@ class Game extends GameObject{
 }
 
 var game = new Game(document.getElementById("canvas"));
+var requestForCancelFrameRefresh;
 
 function mainLoop(){
     game.onLoop();
