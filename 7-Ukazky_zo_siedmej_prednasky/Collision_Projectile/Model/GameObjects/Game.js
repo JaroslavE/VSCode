@@ -7,8 +7,6 @@ class Game extends GameObject{
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
         this.init();
-        //Toto je takzvany call back - my v principe vzdy volame samy seba a takzvanou call back funkciou potrebujeme
-        //ulozit data o sebe aby sme mohli zavolat funkciu a potom sami seba vratit
     }
 
     init(){
@@ -21,6 +19,13 @@ class Game extends GameObject{
         this.addObs(player);
         var enemy = new Enemy(this, player);
         this.addObs(enemy);
+    }
+
+    newLevel(){
+        var index = this.game.observerCollection.indexOf(this.level);
+        var nextLevel = new Level(this);
+        this.game.observerCollection[index] = nextLevel;
+        this.level = nextLevel;
     }
 
     onLoop(){
