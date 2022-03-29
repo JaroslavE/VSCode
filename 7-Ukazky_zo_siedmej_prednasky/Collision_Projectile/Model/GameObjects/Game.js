@@ -19,6 +19,8 @@ class Game extends GameObject{
         this.level = level;
         var player = new Player(this);
         this.addObs(player);
+        var enemy = new Enemy(this, player);
+        this.addObs(enemy);
     }
 
     onLoop(){

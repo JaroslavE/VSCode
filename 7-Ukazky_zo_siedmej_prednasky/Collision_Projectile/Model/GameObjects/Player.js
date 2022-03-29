@@ -2,34 +2,53 @@ class Player extends GameObject{
     constructor(game){
         super(game, 25,25, game.canvas.width, game.canvas.height);
         this.polomer = 25;
+        this.rof = 90 // rate of fire
+        this.fireTimer = false
+        this.direction = 3;
+    }
+
+    startFiring() {
+        // if timer is set, then skip
+        if (this.fireTimer) return
+    
+        var player = this
+        this.fireTimer = setInterval( function() { player.fire() }, this.rof )
+      }
+    
+      stopFiring() {
+        // if timer is no set, then skip
+        if (!this.fireTimer) return
+    
+        clearInterval(this.fireTimer)
+        this.fireTimer = false
+      }
+    
+
+    fire() {
+        var projectile = new Projectile(this.game, this.x, this.y, this.direction);
+        // add the new projectile to game object
+        this.game.addObs(projectile);
     }
 
     onMove(posun){
-        if (keys[37]) this.isAtWall(this.game, this.x, this.y, -5, 0); //Left
-        if (keys[39]) this.isAtWall(this.game, this.x, this.y,  5, 0); //Right
-        if (keys[38]) this.isAtWall(this.game, this.x, this.y, 0, -5); //Up
-        if (keys[40]) this.isAtWall(this.game, this.x, this.y, 0,  5); //Down
-    }
-
-    isAtWall(game, xActual, yActual, xMove, yMove){
-        var xUpdated = xActual + xMove;
-        var yUpdated = yActual + yMove;
-
-        for(var i in game.level.observerCollection){
-            var x = game.level.observerCollection[i].x;
-            var y = game.level.observerCollection[i].y;
-            var w = game.level.observerCollection[i].x + game.level.observerCollection[i].w; //X
-            var h = game.level.observerCollection[i].y + game.level.observerCollection[i].h; //Y
-            //Kontrola hranic voci objektom
-            if((xUpdated + this.polomer > x) && (xUpdated - this.polomer < w) && (yUpdated + this.polomer > y) && (yUpdated - this.polomer < h)) return;
-            //Kontrola hranic voci canvasu
-            if(xUpdated - this.polomer < game.x) return;
-            if(xUpdated + this.polomer > game.w) return;
-            if (yUpdated - this.polomer < game.y) return;
-            if (yUpdated + this.polomer > game.h) return;
-        }
-        this.x = xUpdated;
-        this.y = yUpdated;
+        if (keys[37]){
+            this.direction = 0;
+            this.isAtWall(this.game, this.x, this.y, -5, 0); //Left
+        } 
+        if (keys[39]){
+            this.direction = 1;
+            this.isAtWall(this.game, this.x, this.y,  5, 0); //Right
+        } 
+        if (keys[38]){
+            this.direction = 3;
+            this.isAtWall(this.game, this.x, this.y, 0, -5); //Up
+        } 
+        if (keys[40]){
+            this.direction = 2;
+            this.isAtWall(this.game, this.x, this.y, 0,  5); //Down
+        } 
+        if (keys[32]) this.startFiring();
+        else this.stopFiring();
     }
 
     onDraw(context){
