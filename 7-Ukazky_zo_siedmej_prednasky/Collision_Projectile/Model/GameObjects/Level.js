@@ -22,7 +22,7 @@ class Level extends GameObject{
             if(tick >= 50) break;
             var x = Math.floor(Math.random() * w);
             var y = Math.floor(Math.random() * h);
-            if(this.xPosList.includes(x) == false || this.xPosList.includes(y) == false){
+            if(this.xPosList.includes(x) == false || this.yPosList.includes(y) == false){
                 this.xPosList.push(x);
                 this.yPosList.push(y);
                 this.addBlock(x,y);

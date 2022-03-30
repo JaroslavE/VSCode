@@ -3,7 +3,7 @@ class Finish extends GameObject{
     //Pozicia finish
     constructor(game, x, y, w, h, player){
         super(game, x, y, w, h);
-        this.img = document.getElementById("block");
+        //this.img = document.getElementById("block");
         this.player = player;
     }
 

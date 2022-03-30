@@ -19,10 +19,10 @@ class Projectile extends GameObject {
     }
   
     onMove(posun) {
-        if(this.direction == 0) if(this.isAtWall(this.game, this.x, this.y, -2, 0) == false) this.life = 10; //Vlavo
-        if(this.direction == 1) if(this.isAtWall(this.game, this.x, this.y,  2, 0) == false) this.life = 10; //Vpravo
-        if(this.direction == 2) if(this.isAtWall(this.game, this.x, this.y, 0,  2) == false) this.life = 10; //Hore
-        if(this.direction == 3) if(this.isAtWall(this.game, this.x, this.y, 0, -2) == false) this.life = 10; //Dole
+        if(this.direction == 0) if(this.isAtWall(this.game, this.x, this.y, -10, 0) == false) this.life = 10; //Vlavo
+        if(this.direction == 1) if(this.isAtWall(this.game, this.x, this.y,  10, 0) == false) this.life = 10; //Vpravo
+        if(this.direction == 2) if(this.isAtWall(this.game, this.x, this.y, 0,  10) == false) this.life = 10; //Hore
+        if(this.direction == 3) if(this.isAtWall(this.game, this.x, this.y, 0, -10) == false) this.life = 10; //Dole
         // increase life
         this.life += 0.1;
   
