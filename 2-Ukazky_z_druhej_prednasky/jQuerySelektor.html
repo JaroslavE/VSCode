@@ -54,11 +54,12 @@
     //AJAX
     $("button").click(function(){
         console.log("Hello data:");
-        $.get("http://localhost:5500/skore.txt", function(data,status){
+        $.get("http://localhost:8080/skore.txt", function(data,status){
             var subor = data;
             console.log("Hello data:" + data);
         });    
     });
+
 
 </script>
 

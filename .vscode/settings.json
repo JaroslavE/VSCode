@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "8-Ukazky_z_osmej_prednasky/JavaNetHandler/jnetpcap-1.4.r1425/jnetpcap.jar"
+    ],
+    "liveServer.settings.port": 8080
+}

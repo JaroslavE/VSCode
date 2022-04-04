@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Skusame Backend a Frontend</h1>
+<p>AJAXom ziskame tabulku z databazy usporiadanu od najvacsieho po najmensi</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+<div id="demo"></div>
+<script src="MergeSort.js"></script>
+<script>
+/*array = [22,485,3,2,789,4,52,13,97,5,7];
+console.log(mergeSort(array));*/
+function loadDoc() {
+
+    var str = "Jaroslav";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById("demo").innerHTML = this.responseText;
+
+    };
+    xhttp.open("GET","basic.php");
+    xhttp.send();
+}
+
+/*function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "DBSConnect.php",true);
+  xhttp.send();
+}*/
+</script>
+</body>
+</html>
