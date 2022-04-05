@@ -13,8 +13,10 @@ public class ReadingNetworkCard {
         /*************************************************************************** 
          * First get a list of devices on this system 
          **************************************************************************/  
+        System.out.println("Debug");
+
         Pcap.findAllDevs(alldevs, errbuf);  
-  
+
         if (alldevs.isEmpty()) {  
             System.err.printf("Can't read list of devices, error is %s", errbuf.toString());  
             return;
@@ -27,5 +29,6 @@ public class ReadingNetworkCard {
 
         Port port = new Port();
         port.openPortConnection(alldevs.get(8));
+        System.out.println("BLE");
     }	
 }
