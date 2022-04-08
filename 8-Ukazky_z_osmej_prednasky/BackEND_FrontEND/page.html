@@ -4,12 +4,38 @@
 
 <h1>Skusame Backend a Frontend</h1>
 <p>AJAXom ziskame tabulku z databazy usporiadanu od najvacsieho po najmensi</p>
-<button type="button" onclick="loadDoc()">Change Content</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<form>
+  <label for="fname">Meno:</label>
+  <input type="text" id="name" name="fname"><br><br>
+  <label for="lname">Body:</label>
+  <input type="text" id="points" name="lname"><br><br>
+  <button type="button" id="but2">POST data</button>
+</form>
+<button type="button" onclick="loadDoc()">GET data</button>
 <div id="demo"></div>
 <script src="MergeSort.js"></script>
 <script>
 /*array = [22,485,3,2,789,4,52,13,97,5,7];
 console.log(mergeSort(array));*/
+
+$("#but2").click(function(){
+  
+  var meno = document.getElementById("name").value;
+  var body = document.getElementById("points").value;  
+  
+  $.post("basic.php",
+    {
+      name: meno,
+      body: body
+    },
+    function(data, status){
+      alert("Data: " + data + "\nStatus: " + status + meno + body);
+    });
+  });
+
+
+
 function loadDoc() {
 
     var str = "Jaroslav";
@@ -22,14 +48,6 @@ function loadDoc() {
     xhttp.send();
 }
 
-/*function loadDoc() {
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("demo").innerHTML = this.responseText;
-  }
-  xhttp.open("GET", "DBSConnect.php",true);
-  xhttp.send();
-}*/
 </script>
 </body>
 </html>

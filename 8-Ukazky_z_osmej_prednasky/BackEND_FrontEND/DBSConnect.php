@@ -17,9 +17,6 @@ th {text-align: left;}
 </head>
 <body>
 <?php
-   //$q = intval($_GET['q']);
-   //$q = $_REQUEST["q"];
-
    $host        = "host = 127.0.0.1";
    $port        = "port = 5600";
    $dbname      = "dbname = postgres";
@@ -37,10 +34,9 @@ th {text-align: left;}
       (id BIGSERIAL PRIMARY KEY,
       meno TEXT NOT NULL,
       body INT NOT NULL)";
-      */
+   */
 
-   //Vkladanie do DBS
-   //$sql = "INSERT INTO skore (meno, body) VALUES ('Dezider' , 5000)";
+   //Vyberanie z DBS
    $sql ="SELECT * from skore ORDER BY body DESC";
 
    $ret = pg_query($db, $sql);
@@ -62,9 +58,7 @@ th {text-align: left;}
    }
    echo "</table>";
    pg_close($db);
-
-
-   
+ 
    echo "Operation done successfully\n";
    echo "";
 ?>
