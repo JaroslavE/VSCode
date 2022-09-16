@@ -18,7 +18,7 @@ th {text-align: left;}
 <body>
 <?php
    $host        = "host = 127.0.0.1";
-   $port        = "port = 5600";
+   $port        = "port = 5500";
    $dbname      = "dbname = postgres";
    $credentials = "user = postgres password=123456789";
 
@@ -37,7 +37,7 @@ th {text-align: left;}
    */
 
    //Vyberanie z DBS
-   $sql ="SELECT * from skore ORDER BY body DESC";
+   $sql ="SELECT * from score ORDER BY body DESC";
 
    $ret = pg_query($db, $sql);
    if(!$ret) {
